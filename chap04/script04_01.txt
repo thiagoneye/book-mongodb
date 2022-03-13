@@ -1,0 +1,36 @@
+> use library
+
+> show collections
+
+> db
+
+> document = ( { "Type": "Book",
+	"Title": "Definitive Guide to MongoDB 2nd ed., The",
+	"ISBN": "978-1-4302-5821-6",
+	"Publisher": "Apress",
+	"Author": ["Hows, David", "Plugge, Eelco", "Membrey, Peter", "Hawkins, Tim"]
+	} )
+
+> db.media.insert({"Type": "CD", "Artist": "Nirvana", "Title": "Nevermind"})
+
+> db.media.insert( { "Type": "CD",
+	"Artist": "Nirvana",
+	"Title": "Nevermind",
+	"Tracklist": [ { "Track": "1",
+	"Title": "Smells Like Teen Spirit",
+	"Length": "5:02"
+	},
+	{ "Track": "2",
+	"Title": "In Bloom",
+	"Length": "4:15"
+	} ] } )
+
+> db.media.find()
+
+> db.media.find( { Artist : "Nirvana" } )
+
+> db.media.find( { Artist : "Nirvana" }, { Title : 1} )
+
+> db.media.find( { "Tracklist.Title" : "In Bloom" })
+
+
