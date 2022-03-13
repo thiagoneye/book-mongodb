@@ -1,0 +1,63 @@
+> use library
+
+> show collections
+
+> db
+
+> document = ( { "Type": "Book",
+	"Title": "Definitive Guide to MongoDB 2nd ed., The",
+	"ISBN": "978-1-4302-5821-6",
+	"Publisher": "Apress",
+	"Author": ["Hows, David", "Plugge, Eelco", "Membrey, Peter", "Hawkins, Tim"]
+	} )
+
+> db.media.insert({"Type": "CD", "Artist": "Nirvana", "Title": "Nevermind"})
+
+> db.media.insert( { "Type": "CD",
+	"Artist": "Nirvana",
+	"Title": "Nevermind",
+	"Tracklist": [ { "Track": "1",
+	"Title": "Smells Like Teen Spirit",
+	"Length": "5:02"
+	},
+	{ "Track": "2",
+	"Title": "In Bloom",
+	"Length": "4:15"
+	} ] } )
+
+> db.media.find()
+
+> db.media.find({Artist: "Nirvana"})
+
+> db.media.find({Artist: "Nirvana"}, {Title: 1})
+
+> db.media.find({"Tracklist.Title": "In Bloom"})
+
+> db.media.find().sort({Title: 1})
+
+> db.media.find().limit(1)
+
+> db.media.find().skip(1)
+
+> db.createCollection("audit", {capped:true, size:20480})
+
+> db.media.count()
+
+> db.media.find({Publisher: "Apress", Type: "Book"}).count()
+
+> document = ({"Type": "Book", "Title": "Definitive Guide to MongoDB 2nd ed., The", ISBN: "978-1-4302-5821-6", "Publisher": "Apress", "Autor": ["Hows, David", "Plugge, Eelco", "Membrey, Peter", "Hawkins, Tim"]})
+
+> db.media.insert(document)
+
+> db.media.distinct("Title")
+
+> db.media.distinct("ISBN")
+
+> db.media.group(
+	{
+	key: {Title: true},
+	initial: {Total: 0}
+	reduce: function (items, prev)
+	{prev.Total += 13}
+	}
+	)
