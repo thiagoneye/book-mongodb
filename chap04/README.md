@@ -49,3 +49,15 @@
 - **db.collectionName.count()** - Retorna a quantidade de documentos na coleção especificada. Observe que a função *count()* ignora um parâmetro *skip()* ou *limit()* por padrão. Para garantir que sua query não irá ignorar esses parâmetros e que o seu contador resultante corresponderá aos parâmetros *limit* e/ou *skip*, utilize *count(true)*.
 - **db.collectionName.distinct(*key*)** - Retorna somente valores únicos.
 - **db.collectionName.group({key: {*keyName*: *value*}, initial: {Total: *number*}, reduce: function (*argument1*, *argument2*) {*operation*}})** - Agrupa documentos em uma coleção por especificar chaves (*key*, *initial*, *reduce*).
+
+### Trabalhando com operadores condicionais
+
+- **$gt** - Operador maior que (*greater than*).
+- **$gte** - Operador maior ou igual que (*greater than or equal to*).
+- **$lt** - Operador menor que (*less than*).
+- **$lte** - Operador menor ou igual que (*less than or equal to*).
+- **$ne** - Operador diferente de (*not equals*).
+- **$in** - Operador em (*in*).
+- **$nin** - Operador não está em (*not in*).
+- **$all** - Operador todos (*all*).
+- **$or** - Operador ou (*or*).

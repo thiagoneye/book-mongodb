@@ -61,3 +61,34 @@
 	{prev.Total += 13}
 	}
 	)
+
+> dvd = ({"Type": "DVD", "Title": "Matrix, The", "Released": 1999,
+	"Cast": ["Keanu Reeves", "Carrie-Anne Moss", "Laurence Fishburne", "Hugo Weaving",
+	"Gloria Foster", "Jose Pantoliano"]})
+
+> db.media.insert(dvd)
+
+> dvd = ({"Type": "DVD", "Title": "Blade Runner", "Released": 1982})
+
+> db.media.insert(dvd)
+
+> dvd = ({"Type": "DVD", "Title": "Toy Story 3", "Released": 2010})
+
+> db.media.insert(dvd)
+
+> db.media.find({Released: {$gt: 2000}}, {"Cast": 0})
+
+> db.media.find({Released: {$gte: 1999}}, {"Cast": 0})
+
+> db.media.find({Released: {$lte: 1999}}, {"Cast": 0})
+
+> db.media.find({Released: {$gte: 1990, $lt: 2010}}, {"Cast": 0})
+
+> db.media.find({Released: {$in: [1999, 2008, 2009]}}, {"Cast": 0})
+
+> db.media.find({Released: {$in: [2010, 2009]}}, {"Cast": 0})
+
+> db.media.find({Released: {$all: [2010, 2009]}}, {"Cast": 0})
+
+> db.media.find({$or: [{"Title": "Toy Story 3"}, {"ISBN": "987-1-4302-3051-9"}]})
+
